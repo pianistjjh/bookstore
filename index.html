@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bookstore</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div id="bookData">
+        <div class="header-indicator">
+            <div class="progress-container">
+                <div class="progress-bar" id="myBar"></div>
+            </div>
+        </div>
+        <div class="wrap">
+            <header>
+                <div class="hd-innderWrap">
+                    <div class="head-logo" id="head-logo">
+                        <a href="index.html"></a>
+                    </div>
+                    <div class="searchWrap">
+                        <div class="search">
+                            <input type="text" placeholder="Search..." id="searchInput" v-model="search">
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <section>
+                <div id="loaderWrap">
+                    <div class="lds-ellipsis">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+                <div class="content imglist">
+                    <div class="contentImg flip-container" v-for="(books, key) in filterData">
+                        <div class="flipper">
+                            <div class="wrapImg front">
+                                <img v-bind:src="books.cover" />
+                                <div class="wrapDetail back">
+                                    <div class="bookTitle"> {{ books.title }}</div>
+                                    <div class="bookDescrpt"> {{ books.description }}</div>
+                                    <div class="bookMoreInfo">
+                                        <a class="fancybox" v-bind:href="books.detail" data-fancybox="images">
+                                            <button type="button" class="btn btn-info">More Info</button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            <div class="footerInnerWrap">
+                &copy;2018 BOOKSTORE | All Rights Reserved
+            </div>
+        </footer>
+
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
